@@ -22,6 +22,7 @@
 	[commandCenter.previousTrackCommand addTarget:self action:@selector(onPreviousTrack:)];
 	[commandCenter.seekForwardCommand addTarget:self action:@selector(onSeekForward:)];
 	[commandCenter.seekBackwardCommand addTarget:self action:@selector(onSeekBackward:)];
+	[commandCenter.seekBackwardCommand addTarget:self action:@selector(onChangePlaybackPosition:)];
 }
 
 - (void)onPause:(MPRemoteCommandHandlerStatus*)event { [self sendEvent:@"pause"]; }
@@ -34,6 +35,7 @@
 - (void)onPreviousTrack:(MPRemoteCommandHandlerStatus*)event { [self sendEvent:@"previousTrack"]; }
 - (void)onSeekForward:(MPRemoteCommandHandlerStatus*)event { [self sendEvent:@"seekForward"]; }
 - (void)onSeekBackward:(MPRemoteCommandHandlerStatus*)event { [self sendEvent:@"seekBackward"]; }
+- (void)onSeekBackward:(MPRemoteCommandHandlerStatus*)event { [self sendEvent:@"changePlaybackPosition"]; }
 
 
 /**
@@ -77,6 +79,8 @@
 		remoteCenter.seekForwardCommand.enabled = enabled;
 	} else if ([cmd isEqual: @"seekBackward"]) {
 		remoteCenter.seekBackwardCommand.enabled = enabled;
+	} else if ([cmd isEqual: @"changePlaybackPosition"]) {
+		remoteCenter.changePlaybackPositionCommand.enabled = enabled;
 	}
 }
 
