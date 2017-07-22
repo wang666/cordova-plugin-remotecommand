@@ -19,6 +19,7 @@ var RemoteCommand = {
 	 *  previousTrack
 	 *  seekForward
 	 *  seekBackward
+	 *  changePlaybackPosition
 	*/
 	enabled: function (command, isEnabled) {
 		cordova.exec(null, null, 'RemoteCommand', 'enabled', [command, isEnabled]);
