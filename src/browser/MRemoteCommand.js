@@ -13,6 +13,7 @@ var RemoteCommand = {
 	 *  previousTrack
 	 *  seekForward
 	 *  seekBackward
+	 *  changePlaybackPosition
 	*/
 	enabled: function (command, isEnabled) {
 		console.log('RemoteCommand enabled:', command, isEnabled);
