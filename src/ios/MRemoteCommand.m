@@ -22,6 +22,7 @@
 	[commandCenter.previousTrackCommand addTarget:self action:@selector(onPreviousTrack:)];
 	[commandCenter.seekForwardCommand addTarget:self action:@selector(onSeekForward:)];
 	[commandCenter.seekBackwardCommand addTarget:self action:@selector(onSeekBackward:)];
+	[commandCenter.changePlaybackPositionCommand setEnabled:true];
 	[commandCenter.changePlaybackPositionCommand addTarget:self action:@selector(onChangePlaybackPosition:)];
 	
     //[commandCenter.changePlaybackPositionCommand setEnabled:true];
