@@ -23,6 +23,9 @@
 	[commandCenter.seekForwardCommand addTarget:self action:@selector(onSeekForward:)];
 	[commandCenter.seekBackwardCommand addTarget:self action:@selector(onSeekBackward:)];
 	[commandCenter.changePlaybackPositionCommand addTarget:self action:@selector(onChangePlaybackPosition:)];
+	
+    //[commandCenter.changePlaybackPositionCommand setEnabled:true];
+    //[commandCenter.changePlaybackPositionCommand addTarget:self action:@selector(changedThumbSliderOnLockScreen:)];
 }
 
 - (void)onPause:(MPRemoteCommandHandlerStatus*)event { [self sendEvent:@"pause"]; }
@@ -35,8 +38,16 @@
 - (void)onPreviousTrack:(MPRemoteCommandHandlerStatus*)event { [self sendEvent:@"previousTrack"]; }
 - (void)onSeekForward:(MPRemoteCommandHandlerStatus*)event { [self sendEvent:@"seekForward"]; }
 - (void)onSeekBackward:(MPRemoteCommandHandlerStatus*)event { [self sendEvent:@"seekBackward"]; }
-- (void)onChangePlaybackPosition:(MPRemoteCommandHandlerStatus*)event { [self sendEvent:@"changePlaybackPosition"]; }
+//- (void)onChangePlaybackPosition:(MPRemoteCommandHandlerStatus*)event { [self sendEvent:@"changePlaybackPosition"]; }
+- (MPRemoteCommandHandlerStatus)onChangePlaybackPosition:(MPChangePlaybackPositionCommandEvent *)event
+{
+    // change position
+    [self setCurrentPlaybackTime:event.positionTime];
+    // update MPNowPlayingInfoPropertyElapsedPlaybackTime
+    //[[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
 
+    return MPRemoteCommandHandlerStatusSuccess;
+}
 
 /**
  * Start listening for commands
