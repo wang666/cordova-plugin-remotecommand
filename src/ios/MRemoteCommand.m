@@ -44,7 +44,7 @@
 - (void)onChangePlaybackPosition:(MPRemoteCommandHandlerStatus*)event
 {
     // change position
-    //[self setCurrentPlaybackTime:event.positionTime];
+    [self setCurrentPlaybackTime:event.positionTime];
     // update MPNowPlayingInfoPropertyElapsedPlaybackTime
     //[[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
 
