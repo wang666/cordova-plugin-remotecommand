@@ -41,14 +41,14 @@
 - (void)onSeekBackward:(MPRemoteCommandHandlerStatus*)event { [self sendEvent:@"seekBackward"]; }
 //- (void)onChangePlaybackPosition:(MPRemoteCommandHandlerStatus*)event { [self sendEvent:@"changePlaybackPosition"]; }
 
-- (void)onChangePlaybackPosition:(MPChangePlaybackPositionCommandEvent*)event
+- (MPRemoteCommandHandlerStatus)onChangePlaybackPosition:(MPChangePlaybackPositionCommandEvent*)event
 {
     // change position
     [self setCurrentPlaybackTime:event.positionTime];
     // update MPNowPlayingInfoPropertyElapsedPlaybackTime
     //[[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
 
-    //return MPRemoteCommandHandlerStatusSuccess;
+    return MPRemoteCommandHandlerStatusSuccess;
 }
 
 /**
