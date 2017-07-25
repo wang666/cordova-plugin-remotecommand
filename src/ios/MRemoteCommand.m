@@ -48,7 +48,7 @@
     // update MPNowPlayingInfoPropertyElapsedPlaybackTime
     //[[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
 
-    return MPRemoteCommandHandlerStatusSuccess;
+    return event.positionTime;
 }
 
 /**
