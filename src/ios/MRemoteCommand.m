@@ -41,7 +41,7 @@
 - (void)onSeekBackward:(MPRemoteCommandHandlerStatus*)event { [self sendEvent:@"seekBackward"]; }
 //- (void)onChangePlaybackPosition:(MPRemoteCommandHandlerStatus*)event { [self sendEvent:@"changePlaybackPosition"]; }
 
-- (void)onChangePlaybackPosition:(MPRemoteCommandHandlerStatus*)event
+- (void)onChangePlaybackPosition:(MPChangePlaybackPositionCommandEvent*)event
 {
     // change position
     [self setCurrentPlaybackTime:event.positionTime];
